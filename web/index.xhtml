@@ -7,31 +7,23 @@
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h1>Conjunto cerrado Las Torres</h1>
         <br />
-        <h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/>
-        <br />
-        <h:link outcome="/pages/comentario/List" value="COMENTARIOS"/>
-        <br />
-        <h:link outcome="/pages/conjunto/List" value="CONJUNTO"/>
-        <br />
-        <h:link outcome="/pages/evento/List" value="EVENTOS"/>
-        <br />
-        <h:link outcome="/pages/factura/List" value="FACTURAS"/>
-        <br />
-        <h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/>
-        <br />
-        <h:link outcome="/pages/residente/List" value="RECIDENTES"/>
-        <br />
-        <h:link outcome="/pages/torre/List" value="TORRES"/>
+        
+        <ul>
+            <li><h:link outcome="/pages/residente/List" value="RECIDENTES"/></li>
+            <li><h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/></li>
+            
+            <li><h:link outcome="/pages/conjunto/List" value="CONJUNTO"/></li>
+            <li><h:link outcome="/pages/evento/List" value="EVENTOS"/></li>
+            <li><h:link outcome="/pages/factura/List" value="FACTURAS"/></li>
+            <li><h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/></li>
+            <li><h:link outcome="/pages/torre/List" value="TORRES"/></li>
+        </ul>
+        
+        <img class="img01" src="./resources/img/img01.jpg"/>
+        
     </h:body>
-
-
-
-
-
-
-
 
 </html>
 

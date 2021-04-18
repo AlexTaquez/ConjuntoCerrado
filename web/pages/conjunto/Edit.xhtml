@@ -10,6 +10,17 @@
             <h:outputText value="#{bundle.EditConjuntoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            
+            <ul>
+                <li><h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/></li>
+                <li><h:link outcome="/pages/comentario/List" value="COMENTARIOS"/></li>
+                <li><h:link outcome="/pages/conjunto/List" value="CONJUNTO"/></li>
+                <li><h:link outcome="/pages/evento/List" value="EVENTOS"/></li>
+                <li><h:link outcome="/pages/factura/List" value="FACTURAS"/></li>
+                <li><h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/></li>
+                <li><h:link outcome="/pages/residente/List" value="RECIDENTES"/></li>
+            </ul>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -26,7 +37,7 @@
                     <h:outputLabel value="#{bundle.EditConjuntoLabel_admin}" for="admin" />
                     <h:inputText id="admin" value="#{conjuntoController.selected.admin}" title="#{bundle.EditConjuntoTitle_admin}" required="true" requiredMessage="#{bundle.EditConjuntoRequiredMessage_admin}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{conjuntoController.update}" value="#{bundle.EditConjuntoSaveLink}"/>
+                <h:commandButton class="btnGrd" action="#{conjuntoController.update}" value="#{bundle.EditConjuntoSaveLink}"/>
                 <br />
                 <br />
                 <h:link outcome="View" value="#{bundle.EditConjuntoViewLink}"/>

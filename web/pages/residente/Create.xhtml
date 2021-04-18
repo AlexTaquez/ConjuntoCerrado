@@ -10,6 +10,17 @@
             <h:outputText value="#{bundle.CreateResidenteTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            
+            <ul>
+                <li><h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/></li>
+                <li><h:link outcome="/pages/comentario/List" value="COMENTARIOS"/></li>
+                <li><h:link outcome="/pages/conjunto/List" value="CONJUNTO"/></li>
+                <li><h:link outcome="/pages/evento/List" value="EVENTOS"/></li>
+                <li><h:link outcome="/pages/factura/List" value="FACTURAS"/></li>
+                <li><h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/></li>
+                <li><h:link outcome="/pages/residente/List" value="RECIDENTES"/></li>
+            </ul>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -33,9 +44,12 @@
                     <h:selectOneMenu id="titular" value="#{residenteController.selected.titular}" title="#{bundle.CreateResidenteTitle_titular}" >
                         <f:selectItems value="#{residenteController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    
+                  
+                    
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{residenteController.create}" value="#{bundle.CreateResidenteSaveLink}" />
+                <h:commandButton class="btnGrd" action="#{residenteController.create}" value="#{bundle.CreateResidenteSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{residenteController.prepareList}" value="#{bundle.CreateResidenteShowAllLink}" immediate="true"/>

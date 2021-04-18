@@ -10,13 +10,23 @@
             <h:outputText value="#{bundle.CreateApartamentoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            
+            <ul>
+                <li><h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/></li>
+                <li><h:link outcome="/pages/comentario/List" value="COMENTARIOS"/></li>
+                <li><h:link outcome="/pages/conjunto/List" value="CONJUNTO"/></li>
+                <li><h:link outcome="/pages/evento/List" value="EVENTOS"/></li>
+                <li><h:link outcome="/pages/factura/List" value="FACTURAS"/></li>
+                <li><h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/></li>
+                <li><h:link outcome="/pages/residente/List" value="RECIDENTES"/></li>
+            </ul>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateApartamentoLabel_idApt}" for="idApt" />
-                    <h:inputText id="idApt" value="#{apartamentoController.selected.idApt}" title="#{bundle.CreateApartamentoTitle_idApt}" required="false" requiredMessage="#{bundle.CreateApartamentoRequiredMessage_idApt}"/>
+                   
                     <h:outputLabel value="#{bundle.CreateApartamentoLabel_piso}" for="piso" />
                     <h:inputText id="piso" value="#{apartamentoController.selected.piso}" title="#{bundle.CreateApartamentoTitle_piso}" required="true" requiredMessage="#{bundle.CreateApartamentoRequiredMessage_piso}"/>
                     <h:outputLabel value="#{bundle.CreateApartamentoLabel_numero}" for="numero" />
@@ -31,7 +41,7 @@
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{apartamentoController.create}" value="#{bundle.CreateApartamentoSaveLink}" />
+                <h:commandButton class="btnGrd" action="#{apartamentoController.create}" value="#{bundle.CreateApartamentoSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{apartamentoController.prepareList}" value="#{bundle.CreateApartamentoShowAllLink}" immediate="true"/>

@@ -155,7 +155,7 @@ public class Conjunto implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Conjunto[ id=" + id + " ]";
+        return " Conjunto " + nombre + " " + direccion;
     }
     
 }

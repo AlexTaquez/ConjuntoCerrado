@@ -22,7 +22,24 @@ public class JsfUtil {
         }
         return items;
     }
-
+    //Mi selec items
+    public static SelectItem[] getSelectItemsFilter(List<?> entities, boolean selectOne) {
+        int size = selectOne ? entities.size() + 1 : entities.size();
+            
+                
+        SelectItem[] items = new SelectItem[size];
+        int i = 0;
+        if (selectOne) {
+            items[0] = new SelectItem("", "---");
+            i++;
+        }
+        for (Object x : entities) {
+            items[i++] = new SelectItem(x, x.toString());
+            
+        }
+        return items;
+    }
+    //------------
     public static void addErrorMessage(Exception ex, String defaultMsg) {
         String msg = ex.getLocalizedMessage();
         if (msg != null && msg.length() > 0) {

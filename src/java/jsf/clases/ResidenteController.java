@@ -187,6 +187,12 @@ public class ResidenteController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
+    
+    //
+    public SelectItem[] getItemsAvailableSelectSome() {
+        
+        return JsfUtil.getSelectItemsFilter(ejbFacade.findAll(), true);
+    }
 
     public Residente getResidente(java.lang.String id) {
         return ejbFacade.find(id);

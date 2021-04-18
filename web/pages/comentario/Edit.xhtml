@@ -30,7 +30,7 @@
                         <f:selectItems value="#{residenteController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{comentarioController.update}" value="#{bundle.EditComentarioSaveLink}"/>
+                <h:commandButton class="btnGrd" action="#{comentarioController.update}" value="#{bundle.EditComentarioSaveLink}"/>
                 <br />
                 <br />
                 <h:link outcome="View" value="#{bundle.EditComentarioViewLink}"/>

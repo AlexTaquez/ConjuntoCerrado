@@ -44,8 +44,8 @@ public class Factura implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = true)
     @Column(name = "id_factura")
     private Integer idFactura;
     @Basic(optional = false)

@@ -177,7 +177,7 @@ public class Apartamento implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Apartamento[ idApt=" + idApt + " ]";
+        return "Apartamento: " + idTorre + " piso "+ piso +" número " + piso + "0" + numero;
     }
     
 }

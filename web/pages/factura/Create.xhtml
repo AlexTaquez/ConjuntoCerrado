@@ -10,6 +10,18 @@
             <h:outputText value="#{bundle.CreateFacturaTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            
+            <ul>
+                <li><h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/></li>
+                <li><h:link outcome="/pages/comentario/List" value="COMENTARIOS"/></li>
+                <li><h:link outcome="/pages/conjunto/List" value="CONJUNTO"/></li>
+                <li><h:link outcome="/pages/evento/List" value="EVENTOS"/></li>
+                <li><h:link outcome="/pages/factura/List" value="FACTURAS"/></li>
+                <li><h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/></li>
+                <li><h:link outcome="/pages/residente/List" value="RECIDENTES"/></li>
+            </ul>
+            
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -29,19 +41,27 @@
                     <h:inputText id="fechaLim" value="#{facturaController.selected.fechaLim}" title="#{bundle.CreateFacturaTitle_fechaLim}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_fechaLim}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
+                    
                     <h:outputLabel value="#{bundle.CreateFacturaLabel_estado}" for="estado" />
                     <h:inputText id="estado" value="#{facturaController.selected.estado}" title="#{bundle.CreateFacturaTitle_estado}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_estado}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateFacturaLabel_identificacion}" for="identificacion" />
                     <h:selectOneMenu id="identificacion" value="#{facturaController.selected.identificacion}" title="#{bundle.CreateFacturaTitle_identificacion}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_identificacion}">
+                        
+                        
+                        
                         <f:selectItems value="#{residenteController.itemsAvailableSelectOne}"/>
+                    
+                    
                     </h:selectOneMenu>
+                    
                     <h:outputLabel value="#{bundle.CreateFacturaLabel_idApt}" for="idApt" />
                     <h:selectOneMenu id="idApt" value="#{facturaController.selected.idApt}" title="#{bundle.CreateFacturaTitle_idApt}" required="true" requiredMessage="#{bundle.CreateFacturaRequiredMessage_idApt}">
                         <f:selectItems value="#{apartamentoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{facturaController.create}" value="#{bundle.CreateFacturaSaveLink}" />
+                <h:commandButton class="btnGrd" action="#{facturaController.create}" value="#{bundle.CreateFacturaSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{facturaController.prepareList}" value="#{bundle.CreateFacturaShowAllLink}" immediate="true"/>

@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    color: #e33b06;
+    color: blue;
 }
 
 table {
@@ -79,4 +79,53 @@ tr.jsfcrud_even_row {
     position: absolute;
     left: 50%;
     top: 50%;
+}
+
+/* Diseño de barra de navegacion*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #031547;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px 32px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+li a:hover {
+    background-color: #031137;
+}
+
+/*Diseño de los botones */
+
+.btnGrd{
+    background-color: #031547;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+}
+
+.btnGrd:hover {
+    background-color: #031137;
+}
+
+.img01{
+    width: 70%;
+    margin-left: 15%;
 }

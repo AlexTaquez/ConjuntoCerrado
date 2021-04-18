@@ -42,8 +42,8 @@ public class Torre implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = true)
     @Column(name = "id_torre")
     private Short idTorre;
     @Basic(optional = false)
@@ -150,7 +150,7 @@ public class Torre implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Torre[ idTorre=" + idTorre + " ]";
+        return " " + nombre;        //Nombre de la torre
     }
     
 }

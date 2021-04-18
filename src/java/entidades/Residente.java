@@ -48,6 +48,7 @@ public class Residente implements Serializable {
     @Size(min = 1, max = 15)
     @Column(name = "identificacion")
     private String identificacion;
+    // ---------------------------------- CAPOS EN COLUMNAS --------------------------------//
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
@@ -77,6 +78,7 @@ public class Residente implements Serializable {
     @NotNull
     @Column(name = "activo")
     private boolean activo;
+    // ----------------------------- RELACIONES CON OTRAS TABLAS----------- --------------------------------//
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "identificacion")
     private Collection<Evento> eventoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "identificacion")
@@ -87,6 +89,7 @@ public class Residente implements Serializable {
     private Collection<RcdApt> rcdAptCollection;
     @OneToMany(mappedBy = "titular")
     private Collection<Residente> residenteCollection;
+    // ---------------------------------------- --------------------------------//
     @JoinColumn(name = "titular", referencedColumnName = "identificacion")
     @ManyToOne
     private Residente titular;
@@ -107,7 +110,7 @@ public class Residente implements Serializable {
         this.telefono = telefono;
         this.activo = activo;
     }
-
+    // -------------------------------- SETTERS AND GETTERS-------- --------------------------------//
     public String getIdentificacion() {
         return identificacion;
     }
@@ -163,7 +166,7 @@ public class Residente implements Serializable {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-
+    // ----------------------------- RELACIONES ----------- --------------------------------//
     @XmlTransient
     public Collection<Evento> getEventoCollection() {
         return eventoCollection;
@@ -204,7 +207,7 @@ public class Residente implements Serializable {
     public Collection<Residente> getResidenteCollection() {
         return residenteCollection;
     }
-
+    // ---------------------------------------- --------------------------------//
     public void setResidenteCollection(Collection<Residente> residenteCollection) {
         this.residenteCollection = residenteCollection;
     }
@@ -239,7 +242,7 @@ public class Residente implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Residente[ identificacion=" + identificacion + " ]";
+        return tipoId + identificacion + ": " + nombres + " " + apellidos;
     }
     
 }

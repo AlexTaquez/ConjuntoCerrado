@@ -10,13 +10,23 @@
             <h:outputText value="#{bundle.CreateTorreTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            
+            <ul>
+                <li><h:link outcome="/pages/apartamento/List" value="APARTAMENTOS"/></li>
+                <li><h:link outcome="/pages/comentario/List" value="COMENTARIOS"/></li>
+                <li><h:link outcome="/pages/conjunto/List" value="CONJUNTO"/></li>
+                <li><h:link outcome="/pages/evento/List" value="EVENTOS"/></li>
+                <li><h:link outcome="/pages/factura/List" value="FACTURAS"/></li>
+                <li><h:link outcome="/pages/rcdApt/List" value="RECIDENTES-APARTAMENTO"/></li>
+                <li><h:link outcome="/pages/residente/List" value="RECIDENTES"/></li>
+            </ul>
+            
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateTorreLabel_idTorre}" for="idTorre" />
-                    <h:inputText id="idTorre" value="#{torreController.selected.idTorre}" title="#{bundle.CreateTorreTitle_idTorre}" required="true" requiredMessage="#{bundle.CreateTorreRequiredMessage_idTorre}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateTorreLabel_nombre}" for="nombre" />
                     <h:inputText id="nombre" value="#{torreController.selected.nombre}" title="#{bundle.CreateTorreTitle_nombre}" required="true" requiredMessage="#{bundle.CreateTorreRequiredMessage_nombre}"/>
                     <h:outputLabel value="#{bundle.CreateTorreLabel_NPisos}" for="NPisos" />
@@ -29,7 +39,7 @@
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{torreController.create}" value="#{bundle.CreateTorreSaveLink}" />
+                <h:commandButton class="btnGrd" action="#{torreController.create}" value="#{bundle.CreateTorreSaveLink}" />
                 <br />
                 <br />
                 <h:commandLink action="#{torreController.prepareList}" value="#{bundle.CreateTorreShowAllLink}" immediate="true"/>
