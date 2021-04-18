@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListApartamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListApartamentoEmpty}" rendered="#{apartamentoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{apartamentoController.items.rowCount > 0}">
+                    <h:outputText value="#{apartamentoController.pagination.pageFirstItem + 1}..#{apartamentoController.pagination.pageLastItem + 1}/#{apartamentoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{apartamentoController.previous}" value="#{bundle.Previous} #{apartamentoController.pagination.pageSize}" rendered="#{apartamentoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{apartamentoController.next}" value="#{bundle.Next} #{apartamentoController.pagination.pageSize}" rendered="#{apartamentoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{apartamentoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListApartamentoTitle_idApt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idApt}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListApartamentoTitle_piso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.piso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListApartamentoTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListApartamentoTitle_propiedad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.propiedad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListApartamentoTitle_costoArr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costoArr}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListApartamentoTitle_idTorre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTorre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{apartamentoController.prepareView}" value="#{bundle.ListApartamentoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{apartamentoController.prepareEdit}" value="#{bundle.ListApartamentoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{apartamentoController.destroy}" value="#{bundle.ListApartamentoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{apartamentoController.prepareCreate}" value="#{bundle.ListApartamentoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListApartamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

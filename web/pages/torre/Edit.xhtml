@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTorreTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTorreLabel_idTorre}" for="idTorre" />
+                    <h:inputText id="idTorre" value="#{torreController.selected.idTorre}" title="#{bundle.EditTorreTitle_idTorre}" required="true" requiredMessage="#{bundle.EditTorreRequiredMessage_idTorre}"/>
+                    <h:outputLabel value="#{bundle.EditTorreLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{torreController.selected.nombre}" title="#{bundle.EditTorreTitle_nombre}" required="true" requiredMessage="#{bundle.EditTorreRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditTorreLabel_NPisos}" for="NPisos" />
+                    <h:inputText id="NPisos" value="#{torreController.selected.NPisos}" title="#{bundle.EditTorreTitle_NPisos}" required="true" requiredMessage="#{bundle.EditTorreRequiredMessage_NPisos}"/>
+                    <h:outputLabel value="#{bundle.EditTorreLabel_NApt}" for="NApt" />
+                    <h:inputText id="NApt" value="#{torreController.selected.NApt}" title="#{bundle.EditTorreTitle_NApt}" required="true" requiredMessage="#{bundle.EditTorreRequiredMessage_NApt}"/>
+                    <h:outputLabel value="#{bundle.EditTorreLabel_idConjunto}" for="idConjunto" />
+                    <h:selectOneMenu id="idConjunto" value="#{torreController.selected.idConjunto}" title="#{bundle.EditTorreTitle_idConjunto}" required="true" requiredMessage="#{bundle.EditTorreRequiredMessage_idConjunto}">
+                        <f:selectItems value="#{conjuntoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{torreController.update}" value="#{bundle.EditTorreSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTorreViewLink}"/>
+                <br />
+                <h:commandLink action="#{torreController.prepareList}" value="#{bundle.EditTorreShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTorreIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

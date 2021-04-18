@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateResidenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_identificacion}" for="identificacion" />
+                    <h:inputText id="identificacion" value="#{residenteController.selected.identificacion}" title="#{bundle.CreateResidenteTitle_identificacion}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_identificacion}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_tipoId}" for="tipoId" />
+                    <h:inputText id="tipoId" value="#{residenteController.selected.tipoId}" title="#{bundle.CreateResidenteTitle_tipoId}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_tipoId}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{residenteController.selected.nombres}" title="#{bundle.CreateResidenteTitle_nombres}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_nombres}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{residenteController.selected.apellidos}" title="#{bundle.CreateResidenteTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_apellidos}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_correo}" for="correo" />
+                    <h:inputText id="correo" value="#{residenteController.selected.correo}" title="#{bundle.CreateResidenteTitle_correo}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_correo}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{residenteController.selected.telefono}" title="#{bundle.CreateResidenteTitle_telefono}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_activo}" for="activo" />
+                    <h:inputText id="activo" value="#{residenteController.selected.activo}" title="#{bundle.CreateResidenteTitle_activo}" required="true" requiredMessage="#{bundle.CreateResidenteRequiredMessage_activo}"/>
+                    <h:outputLabel value="#{bundle.CreateResidenteLabel_titular}" for="titular" />
+                    <h:selectOneMenu id="titular" value="#{residenteController.selected.titular}" title="#{bundle.CreateResidenteTitle_titular}" >
+                        <f:selectItems value="#{residenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{residenteController.create}" value="#{bundle.CreateResidenteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{residenteController.prepareList}" value="#{bundle.CreateResidenteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateResidenteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateComentarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateComentarioLabel_idComentario}" for="idComentario" />
+                    <h:inputText id="idComentario" value="#{comentarioController.selected.idComentario}" title="#{bundle.CreateComentarioTitle_idComentario}" required="true" requiredMessage="#{bundle.CreateComentarioRequiredMessage_idComentario}"/>
+                    <h:outputLabel value="#{bundle.CreateComentarioLabel_mensaje}" for="mensaje" />
+                    <h:inputText id="mensaje" value="#{comentarioController.selected.mensaje}" title="#{bundle.CreateComentarioTitle_mensaje}" required="true" requiredMessage="#{bundle.CreateComentarioRequiredMessage_mensaje}"/>
+                    <h:outputLabel value="#{bundle.CreateComentarioLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{comentarioController.selected.tipo}" title="#{bundle.CreateComentarioTitle_tipo}" required="true" requiredMessage="#{bundle.CreateComentarioRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{bundle.CreateComentarioLabel_idEvento}" for="idEvento" />
+                    <h:selectOneMenu id="idEvento" value="#{comentarioController.selected.idEvento}" title="#{bundle.CreateComentarioTitle_idEvento}" required="true" requiredMessage="#{bundle.CreateComentarioRequiredMessage_idEvento}">
+                        <f:selectItems value="#{eventoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateComentarioLabel_identificacion}" for="identificacion" />
+                    <h:selectOneMenu id="identificacion" value="#{comentarioController.selected.identificacion}" title="#{bundle.CreateComentarioTitle_identificacion}" required="true" requiredMessage="#{bundle.CreateComentarioRequiredMessage_identificacion}">
+                        <f:selectItems value="#{residenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{comentarioController.create}" value="#{bundle.CreateComentarioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{comentarioController.prepareList}" value="#{bundle.CreateComentarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateComentarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewRcdAptTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewRcdAptLabel_idRcdApt}"/>
+                    <h:outputText value="#{rcdAptController.selected.idRcdApt}" title="#{bundle.ViewRcdAptTitle_idRcdApt}"/>
+                    <h:outputText value="#{bundle.ViewRcdAptLabel_identificacion}"/>
+                    <h:outputText value="#{rcdAptController.selected.identificacion}" title="#{bundle.ViewRcdAptTitle_identificacion}"/>
+                    <h:outputText value="#{bundle.ViewRcdAptLabel_idApt}"/>
+                    <h:outputText value="#{rcdAptController.selected.idApt}" title="#{bundle.ViewRcdAptTitle_idApt}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rcdAptController.destroyAndView}" value="#{bundle.ViewRcdAptDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewRcdAptEditLink}"/>
+                <br />
+                <h:commandLink action="#{rcdAptController.prepareCreate}" value="#{bundle.ViewRcdAptCreateLink}" />
+                <br />
+                <h:commandLink action="#{rcdAptController.prepareList}" value="#{bundle.ViewRcdAptShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewRcdAptIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

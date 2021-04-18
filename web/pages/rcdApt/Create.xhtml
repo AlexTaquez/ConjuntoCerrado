@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRcdAptTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel value="#{bundle.CreateRcdAptLabel_identificacion}" for="identificacion" />
+                    <h:selectOneMenu id="identificacion" value="#{rcdAptController.selected.identificacion}" title="#{bundle.CreateRcdAptTitle_identificacion}" required="true" requiredMessage="#{bundle.CreateRcdAptRequiredMessage_identificacion}">
+                        <f:selectItems value="#{residenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{bundle.CreateRcdAptLabel_idApt}" for="idApt" />
+                    <h:selectOneMenu id="idApt" value="#{rcdAptController.selected.idApt}" title="#{bundle.CreateRcdAptTitle_idApt}" required="true" requiredMessage="#{bundle.CreateRcdAptRequiredMessage_idApt}">
+                        <f:selectItems value="#{apartamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rcdAptController.create}" value="#{bundle.CreateRcdAptSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{rcdAptController.prepareList}" value="#{bundle.CreateRcdAptShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRcdAptIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

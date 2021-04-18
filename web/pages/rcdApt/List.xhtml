@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRcdAptTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRcdAptEmpty}" rendered="#{rcdAptController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{rcdAptController.items.rowCount > 0}">
+                    <h:outputText value="#{rcdAptController.pagination.pageFirstItem + 1}..#{rcdAptController.pagination.pageLastItem + 1}/#{rcdAptController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{rcdAptController.previous}" value="#{bundle.Previous} #{rcdAptController.pagination.pageSize}" rendered="#{rcdAptController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{rcdAptController.next}" value="#{bundle.Next} #{rcdAptController.pagination.pageSize}" rendered="#{rcdAptController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{rcdAptController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRcdAptTitle_idRcdApt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRcdApt}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRcdAptTitle_identificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.identificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRcdAptTitle_idApt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idApt}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{rcdAptController.prepareView}" value="#{bundle.ListRcdAptViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{rcdAptController.prepareEdit}" value="#{bundle.ListRcdAptEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{rcdAptController.destroy}" value="#{bundle.ListRcdAptDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{rcdAptController.prepareCreate}" value="#{bundle.ListRcdAptCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRcdAptIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

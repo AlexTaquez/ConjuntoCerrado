@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditApartamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditApartamentoLabel_idApt}" for="idApt" />
+                    <h:inputText id="idApt" value="#{apartamentoController.selected.idApt}" title="#{bundle.EditApartamentoTitle_idApt}" required="true" requiredMessage="#{bundle.EditApartamentoRequiredMessage_idApt}"/>
+                    <h:outputLabel value="#{bundle.EditApartamentoLabel_piso}" for="piso" />
+                    <h:inputText id="piso" value="#{apartamentoController.selected.piso}" title="#{bundle.EditApartamentoTitle_piso}" required="true" requiredMessage="#{bundle.EditApartamentoRequiredMessage_piso}"/>
+                    <h:outputLabel value="#{bundle.EditApartamentoLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{apartamentoController.selected.numero}" title="#{bundle.EditApartamentoTitle_numero}" required="true" requiredMessage="#{bundle.EditApartamentoRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.EditApartamentoLabel_propiedad}" for="propiedad" />
+                    <h:inputText id="propiedad" value="#{apartamentoController.selected.propiedad}" title="#{bundle.EditApartamentoTitle_propiedad}" required="true" requiredMessage="#{bundle.EditApartamentoRequiredMessage_propiedad}"/>
+                    <h:outputLabel value="#{bundle.EditApartamentoLabel_costoArr}" for="costoArr" />
+                    <h:inputText id="costoArr" value="#{apartamentoController.selected.costoArr}" title="#{bundle.EditApartamentoTitle_costoArr}" required="true" requiredMessage="#{bundle.EditApartamentoRequiredMessage_costoArr}"/>
+                    <h:outputLabel value="#{bundle.EditApartamentoLabel_idTorre}" for="idTorre" />
+                    <h:selectOneMenu id="idTorre" value="#{apartamentoController.selected.idTorre}" title="#{bundle.EditApartamentoTitle_idTorre}" required="true" requiredMessage="#{bundle.EditApartamentoRequiredMessage_idTorre}">
+                        <f:selectItems value="#{torreController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{apartamentoController.update}" value="#{bundle.EditApartamentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditApartamentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{apartamentoController.prepareList}" value="#{bundle.EditApartamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditApartamentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
